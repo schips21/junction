@@ -1,35 +1,33 @@
 package com.app.UserInfo.entity;
 
 import javax.persistence.*;
+import java.util.Arrays;
 
 @Entity
-@Table(name = "user")
-public class UserEntity {
+@Table(name = "users")
+public class UsersEntity {
     @Id
-    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @Column(name = "name")
+    private Integer id;
     private String name;
+    private int rating;
+    private byte[] photo;
 
-    @Column(name = "rating")
-    private Long rating;
-
-    public UserEntity() {
+    public UsersEntity() {
     }
 
-    public UserEntity(Long id, String name, Long rating) {
+    public UsersEntity(Integer id, String name, int rating, byte[] photo) {
         this.id = id;
         this.name = name;
         this.rating = rating;
+        this.photo = photo;
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -41,12 +39,20 @@ public class UserEntity {
         this.name = name;
     }
 
-    public Long getRating() {
+    public int getRating() {
         return rating;
     }
 
-    public void setRating(Long rating) {
+    public void setRating(int rating) {
         this.rating = rating;
+    }
+
+    public byte[] getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(byte[] photo) {
+        this.photo = photo;
     }
 
     @Override
@@ -55,6 +61,7 @@ public class UserEntity {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", rating=" + rating +
+                ", photo=" + Arrays.toString(photo) +
                 '}';
     }
 }
