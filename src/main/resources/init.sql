@@ -1,1 +1,1 @@
-CREATE TABLE users (id int GENERATED ALWAYS AS IDENTITY, name varchar(32) unique, rating float, photo bytea);
+CREATE TABLE users (id int GENERATED ALWAYS AS IDENTITY, name varchar(32) unique, xp int, photo bytea);
